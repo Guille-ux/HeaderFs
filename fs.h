@@ -1,3 +1,5 @@
+#include "libs/disk.h"
+
 //fs.h
 
 #define PROTECTED_BLOCKS ((uint32_t)SIZE/512)//size of the os. SIZE / 512
