@@ -13,18 +13,18 @@ void fs_init() {
 
 int fs_create_file(const char* name, unsigned int size) {
     for (int i = 0; i < NUM_BLOCKS; i++) {
-        if (file_system[i].length == 0) { // Espacio disponible
+        if (file_system[i].length == 0) {
             strncpy(file_system[i].name, name, FILE_NAME_MAX);
             file_system[i].start_block = i;
             file_system[i].length = size;
             char empty_data[BLOCK_SIZE] = {0};
             for (int j = 0; j < size; j++) {
-                disk_write(i + j, empty_data);  // Escribir espacio vacío
+                disk_write(i + j, empty_data);
             }
             return 0;
         }
     }
-    return -1; // Error: No hay suficiente espacio
+    return -1;
 }
 
 int fs_read_file(const char* name, char* buffer) {
@@ -36,7 +36,7 @@ int fs_read_file(const char* name, char* buffer) {
             return 0;
         }
     }
-    return -1; // Error: No encontrado
+    return -1;
 }
 
 int fs_write_file(const char* name, const char* data) {
@@ -48,5 +48,5 @@ int fs_write_file(const char* name, const char* data) {
             return 0;
         }
     }
-    return -1; // Error: No encontrado
+    return -1;
 }
