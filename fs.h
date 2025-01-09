@@ -1,3 +1,6 @@
+#ifndef HEADER_FS_H
+#define HEADER_FS_H
+
 #include "libs/disk.h"
 #include "libs/io.h"
 
@@ -160,3 +163,4 @@ void remove_file(const char *name) { //changes all bits to 0
 	uint32_t begin = file.begin; // in this code i'm going to delete de header
 	write_block(begin, zeros);
 }
+#endif
